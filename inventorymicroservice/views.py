@@ -13,15 +13,17 @@ def bookinventory(request):
         serializer = BookInventorySerializer(snippets, many=True)
         return Response(serializer.data)
 
-    elif request.method == 'PUT': # user posting data
+    elif request.method == 'POST': # user adding / posting data
+        snippets = BookInventory.objects.all().filter(book_number=request.data.get("book_number"))
+        snippets.delete()
         serializer = BookInventorySerializer(data=request.data)
         if serializer.is_valid():
             serializer.save() # save to db
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    elif request.method == 'POST': # user posting data
-        snippets = BookInventory.objects.all().filter(book_number="IT122")
+    elif request.method == 'PUT': # user putting/updating data
+        snippets = BookInventory.objects.all().filter(book_number=request.data.get("book_number"))
         snippets.delete()
         serializer = BookInventorySerializer(data=request.data)
         if serializer.is_valid():

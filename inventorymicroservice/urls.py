@@ -18,6 +18,6 @@ from .views import bookinventory
 from .views import singlebookinventory
 
 urlpatterns = [
-    path('bookInventory/', bookinventory, name="bookInventories"),
-    path('bookInventory/<str:queryparams>', singlebookinventory, name = "bookinventory")
+    path('api/bookInventory/', bookinventory, name="bookInventories"),
+    path('api/bookInventory/<str:queryparams>', singlebookinventory, name = "bookinventory")
 ]
