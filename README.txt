@@ -1,16 +1,22 @@
-*Django Web Service*
+# Inventory Service
 
-APIs:
- - GET http://127.0.0.1:8000/bookInventory/
- - GET http://127.0.0.1:8000/bookInventory/CSE110
+Its a webservice based on Django and SQLite
 
- - POST http://127.0.0.1:8000/bookInventory/
+*Design*
+ - ITs a Microservice with Django and SQLite 
+
+ 
+*API - Book Inventory*
+ - GET http://127.0.0.1:8000/api/bookInventory/
+ - GET http://127.0.0.1:8000/api/bookInventory/CSE110
+
+ - POST http://127.0.0.1:8000/api/bookInventory/
   -- {
   --     "book_number": "CSE121",
   --     "count": 12
   -- }
 
- - PUT http://127.0.0.1:8000/bookInventory/
+ - PUT http://127.0.0.1:8000/api/bookInventory/
   -- {
   --     "book_number": "CSE121",
   --     "count": 12
