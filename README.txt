@@ -1,27 +1,40 @@
 # Inventory Service
 
-Its a webservice based on Django and SQLite
+*Description:* Its a webservice to manage the inventory of books
 
-*Design*
- - ITs a Microservice with Django and SQLite 
+*Author:* Tarun Pal Singh
 
+*Design:* ITs a Microservice with Django and SQLite 
  
-*API - Book Inventory*
+## Setting up env
+ - InstallPython 	 
+ - Create virtualenv for windows
+ 	- py -m venv project-name
+ - Activate virualenv for windows
+ 	- venv\Scripts\activate
+ - Install Django on the enviroment
+ 	- py -m pip install Django
+ - Upgrading PIP
+ 	- python -m pip install --upgrade pip
+
+## Running Service
+- >activate
+- >python manage.py runserver
+
+## API
  - GET http://127.0.0.1:8000/api/bookInventory/
- - GET http://127.0.0.1:8000/api/bookInventory/CSE110
+  -- Get all the inventory
+
+ - GET http://127.0.0.1:8000/api/bookInventory/2
+  -- Get all the inventory(count) of a particular book
 
  - POST http://127.0.0.1:8000/api/bookInventory/
-  -- {
-  --     "book_number": "CSE121",
-  --     "count": 12
-  -- }
+  -- creates an inventory(add a row)
+  -- { "book_number": "1",     "count": 10 }
 
  - PUT http://127.0.0.1:8000/api/bookInventory/
-  -- {
-  --     "book_number": "CSE121",
-  --     "count": 12
-  -- }
+  -- update an inventory(update a row)
+  -- { "book_number": "1",     "count": 12 }
 
 References:
- - C:\_PROJECTS\_GITHUB\inventoryService\inventory-service\Scripts>activate
- - (inventory-service) C:\_PROJECTS\_GITHUB\inventorymicroservicePRJ>python manage.py runserver
+
