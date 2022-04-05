@@ -30,11 +30,16 @@ def bookinventory(request):
             serializer.save() # save to db
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-        
 
-@api_view(['GET'])
+@api_view(['GET','DELETE'])
 def singlebookinventory(request, queryparams):
     if request.method == 'GET': # user requesting data 
         snippets = BookInventory.objects.all().filter(book_number=queryparams)
         serializer = BookInventorySerializer(snippets, many=True)
         return Response(serializer.data)
+
+    elif request.method == 'DELETE': # deleting data
+        snippets = BookInventory.objects.all().filter(book_number=queryparams)
+        serializer = BookInventorySerializer(snippets, many=True)
+        snippets.delete()
+        return Response(serializer.data, status=status.HTTP_200_OK)   
