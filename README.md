@@ -9,13 +9,15 @@
 ## Setting up env
  - InstallPython 	 
  - Create virtualenv for windows
- 	- py -m venv project-name
+ 	- py -m venv Djano
  - Activate virualenv for windows
  	- venv\Scripts\activate
  - Install Django on the enviroment
  	- py -m pip install Django
  - Upgrading PIP
  	- python -m pip install --upgrade pip
+ - Install REST framework
+	- pip install djangorestframework
 
 ## Running Service
 - >activate
